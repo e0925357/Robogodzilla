@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class IslandTheme : MonoBehaviour {
+	public int scoreValue;
 
 	// Use this for initialization
 	void Start () {
