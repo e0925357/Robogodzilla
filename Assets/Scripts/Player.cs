@@ -10,12 +10,18 @@ public class Player : MonoBehaviour {
 	private Image currentUIFlag;
 	public Text scoreText;
 	public AudioSource deathSound;
+	public AudioSource switchSound;
 
 	public float jumpTime = 1;
 	public int scoreReward = 10;
 	public float maxTimeLeft = 10;
 	public float minTimeLeft = 1;
-	public FlagType currentFlag = FlagType.AMERICA; 
+	public FlagType currentFlag = FlagType.AMERICA;
+	
+	public float maxRoarTime = 30;
+	public float minRoarTime = 10;
+	public AudioSource roarSound;
+	private float roarTimer = 0;
 
 
 	private bool isJumping = false;
@@ -69,6 +75,13 @@ public class Player : MonoBehaviour {
 			timeLeft -= Time.deltaTime;
 		}
 		
+		roarTimer -= Time.deltaTime;
+		if(roarTimer <= 0) {
+			roarTimer = minRoarTime + (maxRoarTime - minRoarTime)*Random.value;
+			roarSound.pitch = roarSound.pitch*0.8f + Random.value*0.4f;
+			roarSound.Play();
+		}
+		
 		if(timeLeft <= 0) {
 			killPlayer();
 		}
@@ -88,6 +101,9 @@ public class Player : MonoBehaviour {
 	
 	public void changeToNation(FlagType newType) {
 		currentUIFlag.color = new Color(1, 1, 1, 0.6f);
+		
+		switchSound.pitch = switchSound.pitch*0.8f + Random.value*0.4f;
+		switchSound.Play();
 		
 		switch(newType) {
 		case FlagType.AMERICA:
