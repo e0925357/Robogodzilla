@@ -437,6 +437,7 @@ MonoBehaviour:
   player: {fileID: 1349389572}
   masterIslandPrefab: {fileID: 160532, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
   islandPrefabs:
+  - {fileID: 199308, guid: b51c3e6be574de640bbb46f0f0ca30c7, type: 2}
   - {fileID: 173956, guid: c00711549f3111543a111db4fde9e0ba, type: 2}
   maxIslandsCurve:
     serializedVersion: 2
@@ -648,6 +649,7 @@ MonoBehaviour:
   scoreReward: 100
   maxTimeLeft: 10
   minTimeLeft: 1
+  currentFlag: 0
 --- !u!82 &1349389573
 AudioSource:
   m_ObjectHideFlags: 0
