@@ -3,6 +3,8 @@ using System.Collections;
 
 public class IslandTheme : MonoBehaviour {
 
+	public FlagType flagType;
+
 	// Use this for initialization
 	void Start () {
 	

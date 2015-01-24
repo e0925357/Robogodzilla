@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
 		}
 		
 		if(timeLeft <= 0) {
-			isAlive = false;
+			killPlayer();
 		}
 		
 		timeBar.localScale = new Vector3(timeLeft/currentMaxTimeLeft, 1, 1);
@@ -73,6 +73,10 @@ public class Player : MonoBehaviour {
 		} else if(Input.GetKeyDown(KeyCode.Alpha4)) {
 			currentFlag = FlagType.GERMANY;
 		}
+	}
+	
+	public void killPlayer() {
+		isAlive = false;
 	}
 
 	public void moveToIsland(Island target) {
