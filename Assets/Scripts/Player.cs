@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
 	public float maxTimeLeft = 10;
 	public float minTimeLeft = 1;
 	public FlagType currentFlag = FlagType.AMERICA;
+	public CameraShaker cameraShaker;
 	
 	public float maxRoarTime = 30;
 	public float minRoarTime = 10;
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour {
 				score += scoreReward;
 				scoreText.text = "" + score;
 				islandManager.OnPlayerJumpFinished();
+				cameraShaker.Shake();
 			}
 		} else {
 			timeLeft -= Time.deltaTime;
