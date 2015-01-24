@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 	public IslandManager islandManager;
 	public RectTransform timeBar;
+	
+	public Image[] flagUI;
+	private Image currentUIFlag;
+	public Text scoreText;
+	public AudioSource deathSound;
 
 	public float jumpTime = 1;
 	public int scoreReward = 10;
@@ -28,6 +34,9 @@ public class Player : MonoBehaviour {
 		isAlive = true;
 		yCoordinate = transform.position.y;
 		resetTimer ();
+		
+		currentUIFlag = flagUI[0];
+		currentUIFlag.color = new Color(1f, 0.8f, 0.8f, 1f);
 	}
 	
 	void resetTimer() {
@@ -52,6 +61,7 @@ public class Player : MonoBehaviour {
 
 			if(!isJumping) {
 				score += scoreReward;
+				scoreText.text = "" + score;
 				islandManager.OnPlayerJumpFinished();
 			}
 		} else {
@@ -59,20 +69,47 @@ public class Player : MonoBehaviour {
 		}
 		
 		if(timeLeft <= 0) {
-			isAlive = false;
+			killPlayer();
 		}
 		
 		timeBar.localScale = new Vector3(timeLeft/currentMaxTimeLeft, 1, 1);
 		
 		if(Input.GetKeyDown(KeyCode.Alpha1)) {
-			currentFlag = FlagType.AMERICA;
+			changeToNation(FlagType.AMERICA);
 		} else if(Input.GetKeyDown(KeyCode.Alpha2)) {
-			currentFlag = FlagType.RUSSIA;
+			changeToNation(FlagType.RUSSIA);
 		} else if(Input.GetKeyDown(KeyCode.Alpha3)) {
-			currentFlag = FlagType.CHINA;
+			changeToNation(FlagType.CHINA);
 		} else if(Input.GetKeyDown(KeyCode.Alpha4)) {
-			currentFlag = FlagType.GERMANY;
+			changeToNation(FlagType.GERMANY);
 		}
+	}
+	
+	public void changeToNation(FlagType newType) {
+		currentUIFlag.color = new Color(1, 1, 1, 0.6f);
+		
+		switch(newType) {
+		case FlagType.AMERICA:
+			currentUIFlag = flagUI[0];
+			break;
+		case FlagType.RUSSIA:
+			currentUIFlag = flagUI[1];
+			break;
+		case FlagType.CHINA:
+			currentUIFlag = flagUI[2];
+			break;
+		case FlagType.GERMANY:
+			currentUIFlag = flagUI[3];
+			break;
+		}
+		
+		currentUIFlag.color = new Color(1f, 0.8f, 0.8f, 1f);
+		currentFlag = newType;
+	}
+	
+	public void killPlayer() {
+		isAlive = false;
+		deathSound.Play();
 	}
 
 	public void moveToIsland(Island target) {

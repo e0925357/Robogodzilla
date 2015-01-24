@@ -82,5 +82,9 @@ public class IslandManager : MonoBehaviour {
 
 	public void OnPlayerJumpFinished(){
 		currentIsland.OnPlayerLanded ();
+		
+		if(currentIsland.GetComponentInChildren<IslandTheme>().flagType != player.currentFlag) {
+			player.killPlayer();
+		}
 	}
 }
