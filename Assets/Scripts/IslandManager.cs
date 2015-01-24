@@ -12,8 +12,8 @@ public class IslandManager : MonoBehaviour {
 	
 	public int maxACPoints = 100;
 	
-	public AnimationCurve islandPrefabsCurve;
-	public int maxAPPoints = 500;
+	public AnimationCurve nationCountCurve;
+	public int maxNationCurvePoints = 1500;
 	
 	public Island currentIsland;
 	public List<Island> neighbours = new List<Island>();
@@ -55,8 +55,8 @@ public class IslandManager : MonoBehaviour {
 		float phaseShift = Random.value*Mathf.PI * 2f;
 		
 		for(int i = 0; i < numIslandsToGenerate; i++) {
-			int islandToGenerateIndex =
-				Mathf.Min((int)islandPrefabsCurve.Evaluate(player.Score/maxAPPoints), islandPrefabs.Length - 1);
+			int nationIndex = (int)(Mathf.Min((int)nationCountCurve.Evaluate(player.Score/maxNationCurvePoints), 4)*Random.value);
+			int islandToGenerateIndex = (int)((islandPrefabs.Length)*Random.value);
 			
 			GameObject masterInstance = (GameObject)GameObject.Instantiate(masterIslandPrefab);
 			GameObject islandInstance = (GameObject)GameObject.Instantiate(islandPrefabs[islandToGenerateIndex]);
@@ -82,8 +82,9 @@ public class IslandManager : MonoBehaviour {
 
 	public void OnPlayerJumpFinished(){
 		currentIsland.OnPlayerLanded ();
+		FlagType islandFlagType = currentIsland.GetComponentInChildren<IslandTheme>().flagType;
 		
-		if(currentIsland.GetComponentInChildren<IslandTheme>().flagType != player.currentFlag) {
+		if(islandFlagType != FlagType.NONE && islandFlagType != player.currentFlag) {
 			player.killPlayer();
 		}
 	}
