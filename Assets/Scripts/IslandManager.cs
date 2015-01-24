@@ -59,7 +59,7 @@ public class IslandManager : MonoBehaviour {
 		float phaseShift = Random.value*Mathf.PI * 2f;
 		
 		for(int i = 0; i < numIslandsToGenerate; i++) {
-			int nationIndex = (int)(Mathf.Min(nationCountCurve.Evaluate(player.Score/(float)maxNationCurvePoints), 5)*Random.value);
+			int nationIndex = (int)(Mathf.Min((nationCountCurve.Evaluate(player.Score/(float)maxNationCurvePoints))*Random.value, FLAG_TYPE_ARRAY.Length-1));
 			FlagType type = FLAG_TYPE_ARRAY[nationIndex];
 			
 			int islandToGenerateIndex = (int)((islandPrefabs.Length)*Random.value);

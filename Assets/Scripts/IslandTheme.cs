@@ -14,16 +14,18 @@ public class IslandTheme : MonoBehaviour {
 	}
 
 	public void OnRoboGodzillaLand() {
-			audio.pitch = 0.9f + 0.2f * Random.value;
-			audio.Play ();
+		audio.pitch = 0.9f + 0.2f * Random.value;
+		audio.Play ();
 
-			SpecialIslandBehavior behavior = GetComponent<SpecialIslandBehavior> ();
-			if (behavior != null) {
-				behavior.OnPlayerLanded();
-			
-			ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
-			
-			if(ps != null) {
+		SpecialIslandBehavior behavior = GetComponent<SpecialIslandBehavior> ();
+		if (behavior != null) {
+			behavior.OnPlayerLanded();
+		}
+		
+		ParticleSystem[] pses = GetComponentsInChildren<ParticleSystem>();
+		
+		if(pses != null) {
+			foreach(ParticleSystem ps in pses) {
 				ps.Play();
 			}
 		}
