@@ -75,4 +75,8 @@ public class IslandManager : MonoBehaviour {
 		}
 		
 	}
+
+	public void OnPlayerJumpFinished(){
+
+	}
 }
