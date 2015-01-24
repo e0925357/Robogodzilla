@@ -28,12 +28,12 @@ public class Player : MonoBehaviour {
 		}
 	}
 	
-	int Score {
+	public int Score {
 		get {
 			return this.score;
 		}
 		set {
 			score = value;
 		}
-	}public 
+	}
 }
