@@ -15,6 +15,8 @@ public class Island : MonoBehaviour {
 
 	private bool islandSpawned = false;
 	private float timer = 0;
+	
+	public FlagType flagType;
 
 	bool islandDying = false;
 	
