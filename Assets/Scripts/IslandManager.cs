@@ -55,7 +55,8 @@ public class IslandManager : MonoBehaviour {
 		float phaseShift = Random.value*Mathf.PI * 2f;
 		
 		for(int i = 0; i < numIslandsToGenerate; i++) {
-			int islandToGenerateIndex = (int)islandPrefabsCurve.Evaluate(player.Score/maxAPPoints);
+			int islandToGenerateIndex =
+				Mathf.Min((int)islandPrefabsCurve.Evaluate(player.Score/maxAPPoints), islandPrefabs.Length - 1);
 			
 			GameObject masterInstance = (GameObject)GameObject.Instantiate(masterIslandPrefab);
 			GameObject islandInstance = (GameObject)GameObject.Instantiate(islandPrefabs[islandToGenerateIndex]);
