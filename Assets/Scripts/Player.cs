@@ -5,6 +5,7 @@ public class Player : MonoBehaviour {
 	public IslandManager islandManager;
 
 	public float jumpTime = 1;
+	public int scoreReward = 10;
 
 	private bool isJumping = false;
 	private int score = 0;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour {
 			transform.position = oldPosition + (targetIsland.transform.position - oldPosition) * (jumpTimer  /jumpTime);
 
 			if(!isJumping) {
+				score += scoreReward;
 				islandManager.OnPlayerJumpFinished();
 			}
 		}
@@ -41,6 +43,10 @@ public class Player : MonoBehaviour {
 		oldPosition = transform.position;
 		jumpTimer = 0;
 		isJumping = true;
+
+		audio.pitch = 0.8f + Random.value* 0.4f;
+		audio.
+		audio.Play ();
 	}
 	
 	public bool IsJumping {

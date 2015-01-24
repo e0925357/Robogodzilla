@@ -46,7 +46,6 @@ public class Island : MonoBehaviour {
 			if(timer >= spawnTime) {
 				islandSpawned = true;
 				timer = spawnTime;
-				DestroyIsland();
 			}
 
 			Vector3 pos = transform.position;
@@ -59,10 +58,11 @@ public class Island : MonoBehaviour {
 	public void DestroyIsland(){
 		islandDying = true;
 		timer = 0;
+		collider.enabled = false;
 	}
 
 	public void OnPlayerLanded(){
-
+		transform.GetComponentInChildren<IslandTheme> ().OnRoboGodzillaLand ();
 	}
 	
 	void OnMouseDown() {

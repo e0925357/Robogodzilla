@@ -102,7 +102,7 @@ Transform:
   m_Children:
   - {fileID: 474412210}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &430427930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ Transform:
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1267981829
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +302,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 66dec0ca936485d4493f2cb2b7066b42, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -319,7 +319,7 @@ SphereCollider:
   m_GameObject: {fileID: 1267981829}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
@@ -413,7 +413,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &1349389572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,11 +422,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1349389567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd73c197be3fd77468ab0744c9f1e438, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f9c1d9978a8e3b49a9bc87fc593c4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervall: 2
-  teleportRadius: 10
+  islandManager: {fileID: 0}
+  jumpTime: 1
 --- !u!1001 &1404488569
 Prefab:
   m_ObjectHideFlags: 0
@@ -468,7 +468,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 460532, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
       propertyPath: spawnCurve.m_Curve.Array.data[1].time
@@ -577,7 +577,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1798974076
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +587,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1798974077}
   - 114: {fileID: 1798974079}
+  - 135: {fileID: 1798974078}
   m_Layer: 0
   m_Name: IslandPrefab
   m_TagString: Untagged
@@ -606,7 +607,20 @@ Transform:
   m_Children:
   - {fileID: 1267981833}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
+--- !u!135 &1798974078
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 13574552, guid: 147a21d5f155d2d4e81debd415ee556e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1404488569}
+  m_GameObject: {fileID: 1798974076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1798974079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,3 +680,97 @@ MonoBehaviour:
     m_PostInfinity: 2
   spawnTime: 1.5
   spawnHeight: -2
+  islandManager: {fileID: 0}
+--- !u!1 &2078353750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2078353752}
+  - 114: {fileID: 2078353751}
+  m_Layer: 0
+  m_Name: IslandManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2078353751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2078353750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6138a01e50a383744b7ecc6e78a6f0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1349389572}
+  masterIslandPrefab: {fileID: 160532, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+  islandPrefabs:
+  - {fileID: 173956, guid: c00711549f3111543a111db4fde9e0ba, type: 2}
+  maxIslandsCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1.14151931
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1.12302303
+      value: 5.05529928
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  minIslandsCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: -.00371747208
+      value: .990783393
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  maxACPoints: 100
+  islandPrefabsCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  maxAPPoints: 500
+  currentIsland: {fileID: 1798974079}
+  neighbours: []
+  spawnRadius: 10
+--- !u!4 &2078353752
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2078353750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0

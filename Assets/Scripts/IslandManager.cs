@@ -51,8 +51,8 @@ public class IslandManager : MonoBehaviour {
 	}
 	
 	private void generateIslands() {
-		int numIslandsToGenerate = (int)islandPrefabsCurve.Evaluate(player.Score/maxACPoints);
-		float phaseShift = Random.value*Mathf.PI;
+		int numIslandsToGenerate = (int)maxIslandsCurve.Evaluate(player.Score/maxACPoints);
+		float phaseShift = Random.value*Mathf.PI * 2f;
 		
 		for(int i = 0; i < numIslandsToGenerate; i++) {
 			int islandToGenerateIndex = (int)islandPrefabsCurve.Evaluate(player.Score/maxAPPoints);
@@ -68,15 +68,18 @@ public class IslandManager : MonoBehaviour {
 			
 			Vector3 masterPosition = masterInstance.transform.position;
 			
-			masterPosition.x = Mathf.Cos(Mathf.PI*2f*(float)i/(float)numIslandsToGenerate + phaseShift)*spawnRadius;
-			masterPosition.z = Mathf.Sin(Mathf.PI*2f*(float)i/(float)numIslandsToGenerate + phaseShift)*spawnRadius;
+			masterPosition.x = Mathf.Cos(Mathf.PI*2f*(float)i/(float)numIslandsToGenerate + phaseShift)*spawnRadius
+				+ currentIsland.transform.position.x;
+			masterPosition.z = Mathf.Sin(Mathf.PI*2f*(float)i/(float)numIslandsToGenerate + phaseShift)*spawnRadius
+				+ currentIsland.transform.position.z;
 			
 			masterInstance.transform.position = masterPosition;
+			neighbours.Add(masterInstance.GetComponent<Island>());
 		}
 		
 	}
 
 	public void OnPlayerJumpFinished(){
-
+		currentIsland.OnPlayerLanded ();
 	}
 }
