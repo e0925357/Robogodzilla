@@ -13,7 +13,7 @@ public class PlayerAligner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!player.IsJumping) {
+		if (!player.IsJumping && player.IsAlive) {
 			Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
 			Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
 			
