@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8116f3c9830c4d84da7b0ede23302588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 75
 --- !u!198 &19885056
 ParticleSystem:
   m_ObjectHideFlags: 1

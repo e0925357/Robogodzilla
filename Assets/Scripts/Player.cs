@@ -14,7 +14,6 @@ public class Player : MonoBehaviour {
 
 	public float jumpTime = 1;
 	public AnimationCurve jumpHeight;
-	public int scoreReward = 10;
 	public float maxTimeLeft = 10;
 	public float minTimeLeft = 1;
 	public FlagType currentFlag = FlagType.AMERICA;
@@ -69,8 +68,6 @@ public class Player : MonoBehaviour {
 			transform.position = newPosition;
 
 			if(!isJumping) {
-				score += scoreReward;
-				scoreText.text = "" + score;
 				islandManager.OnPlayerJumpFinished();
 				cameraShaker.Shake();
 			}
@@ -153,6 +150,9 @@ public class Player : MonoBehaviour {
 	public int Score {
 		get {
 			return this.score;
+		} set {
+			score = value;
+			scoreText.text = "" + score;
 		}
 	}
 

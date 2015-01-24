@@ -102,6 +102,9 @@ public class IslandManager : MonoBehaviour {
 		
 		if(islandFlagType != FlagType.NONE && islandFlagType != player.currentFlag) {
 			player.killPlayer();
+		} else {
+			int score = currentIsland.GetComponentInChildren<IslandTheme>().scoreValue;
+			player.Score += score;
 		}
 	}
 }
