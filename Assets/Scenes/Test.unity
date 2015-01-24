@@ -348,6 +348,7 @@ GameObject:
   - 33: {fileID: 481657745}
   - 23: {fileID: 481657744}
   - 95: {fileID: 481657743}
+  - 114: {fileID: 481657746}
   m_Layer: 0
   m_Name: robozilla
   m_TagString: Untagged
@@ -412,6 +413,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 706699977}
   m_GameObject: {fileID: 481657741}
   m_Mesh: {fileID: 4300000, guid: 04ad49e6012fc544f8717926040538ed, type: 3}
+--- !u!114 &481657746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 481657741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786615f9ac659cc478025bbfa7a43c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 474412209}
+  player: {fileID: 1349389572}
 --- !u!1 &605212580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1278,6 @@ MonoBehaviour:
   maxTimeLeft: 10
   minTimeLeft: 1
   currentFlag: 0
-  playerCamera: {fileID: 474412209}
 --- !u!82 &1349389573
 AudioSource:
   m_ObjectHideFlags: 0
