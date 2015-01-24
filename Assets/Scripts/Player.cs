@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
 	public float minTimeLeft = 1;
 	public FlagType currentFlag = FlagType.AMERICA; 
 
+	public Camera playerCamera;
+
 	private bool isJumping = false;
 	private int score = 0;
 
@@ -82,6 +84,31 @@ public class Player : MonoBehaviour {
 			changeToNation(FlagType.CHINA);
 		} else if(Input.GetKeyDown(KeyCode.Alpha4)) {
 			changeToNation(FlagType.GERMANY);
+		}
+
+		if (!isJumping) {
+			Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+			Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
+
+			RaycastHit hit;
+			Physics.Raycast(ray, out hit);
+			Vector3 point = hit.point;
+			point.y = 0;
+
+			Vector3 direction = point - transform.position;
+			direction.Normalize();
+
+			Quaternion rotation = transform.localRotation;
+
+			transform.rotation = Quaternion.identity;
+			float dotProduct = Vector3.Dot(Vector3.right, direction);
+			float angle = Mathf.Acos(dotProduct);
+
+			if(direction.z > 0){
+				angle *= -1;
+			}
+
+			transform.Rotate(new Vector3(0, angle * 180.0f / Mathf.PI, 0));
 		}
 	}
 	
