@@ -16,5 +16,11 @@ public class IslandTheme : MonoBehaviour {
 	public void OnRoboGodzillaLand() {
 		audio.pitch = 0.9f + 0.2f * Random.value;
 		audio.Play ();
+		
+		ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+		
+		if(ps != null) {
+			ps.Play();
+		}
 	}
 }
