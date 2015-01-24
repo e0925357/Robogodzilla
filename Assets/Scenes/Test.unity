@@ -146,7 +146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &430427928
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,9 +170,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 430427928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: -6.75}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 806502509}
   - {fileID: 474412210}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -269,11 +270,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 474412205}
   m_LocalRotation: {x: .57357645, y: 0, z: 0, w: .819152057}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: -6.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 430427929}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &605212580
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +348,7 @@ GameObject:
   - 64: {fileID: 806502507}
   - 23: {fileID: 806502506}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Sea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,7 +366,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: bd6e1c17c4a0a134bbbf2db5dbabfc6e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -403,8 +404,101 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
+  m_Father: {fileID: 430427929}
+  m_RootOrder: 0
+--- !u!1 &1231485218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1231485220}
+  - 114: {fileID: 1231485219}
+  m_Layer: 0
+  m_Name: IslandManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1231485219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1231485218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6138a01e50a383744b7ecc6e78a6f0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1349389572}
+  masterIslandPrefab: {fileID: 160532, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+  islandPrefabs:
+  - {fileID: 173956, guid: c00711549f3111543a111db4fde9e0ba, type: 2}
+  maxIslandsCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1.00242269
+      inSlope: 3.93835044
+      outSlope: 3.93835044
+      tangentMode: 10
+    - time: 1.01629281
+      value: 5.00494003
+      inSlope: 3.93835044
+      outSlope: 3.93835044
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  minIslandsCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  maxACPoints: 100
+  islandPrefabsCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  maxAPPoints: 500
+  currentIsland: {fileID: 1798974079}
+  neighbours: []
+  spawnRadius: 9
+--- !u!4 &1231485220
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1231485218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.79445457, y: 1.65648699, z: 1.92742217}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!1 &1267981829
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +508,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1267981833}
   - 33: {fileID: 1267981832}
-  - 135: {fileID: 1267981831}
   - 23: {fileID: 1267981830}
   m_Layer: 0
   m_Name: Sphere
@@ -436,7 +529,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 66dec0ca936485d4493f2cb2b7066b42, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -444,19 +537,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!135 &1267981831
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13560534, guid: 147a21d5f155d2d4e81debd415ee556e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1404488569}
-  m_GameObject: {fileID: 1267981829}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1267981832
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -489,6 +569,7 @@ GameObject:
   - 136: {fileID: 1349389569}
   - 23: {fileID: 1349389568}
   - 114: {fileID: 1349389572}
+  - 82: {fileID: 1349389573}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -557,11 +638,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 1349389567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd73c197be3fd77468ab0744c9f1e438, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f9c1d9978a8e3b49a9bc87fc593c4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervall: 2
-  teleportRadius: 10
+  islandManager: {fileID: 1231485219}
+  timeBar: {fileID: 1821374422}
+  jumpTime: .699999988
+  scoreReward: 100
+  maxTimeLeft: 10
+  minTimeLeft: 1
+--- !u!82 &1349389573
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1349389567}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 507a7a12a85ffcf43afdf9949105bc00, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1001 &1404488569
 Prefab:
   m_ObjectHideFlags: 0
@@ -712,7 +855,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1798974076
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +865,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1798974077}
   - 114: {fileID: 1798974079}
+  - 135: {fileID: 1798974078}
   m_Layer: 0
   m_Name: IslandPrefab
   m_TagString: Untagged
@@ -742,6 +886,19 @@ Transform:
   - {fileID: 1267981833}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!135 &1798974078
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 13574552, guid: 147a21d5f155d2d4e81debd415ee556e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1404488569}
+  m_GameObject: {fileID: 1798974076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1798974079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,10 +944,15 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: .243233919
-      value: -.152996659
-      inSlope: -3.09618807
-      outSlope: -3.09618807
+    - time: .09825252
+      value: -.0287857428
+      inSlope: -3.24087882
+      outSlope: -3.24087882
+      tangentMode: 0
+    - time: .193424895
+      value: -.0759544447
+      inSlope: 1.81533396
+      outSlope: 1.81533396
       tangentMode: 0
     - time: 1
       value: 1

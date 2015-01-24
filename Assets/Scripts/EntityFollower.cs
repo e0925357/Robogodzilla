@@ -16,7 +16,8 @@ public class EntityFollower : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 diffVec = targetEntity.position - transform.position + startTransOffset;
-		
+		diffVec.y = 0;
+
 		if(diffVec.sqrMagnitude > sqrDeadzone) {
 			transform.position = transform.position + diffVec.normalized * followingSpeed * Time.deltaTime;
 		}
