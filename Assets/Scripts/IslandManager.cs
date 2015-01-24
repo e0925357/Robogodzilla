@@ -47,4 +47,8 @@ public class IslandManager : MonoBehaviour {
 	private void generateIslands() {
 		
 	}
+
+	public void OnPlayerJumpFinished(){
+
+	}
 }
