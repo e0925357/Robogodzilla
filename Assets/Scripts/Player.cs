@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	
 	public Image[] flagUI;
 	private Image currentUIFlag;
+	public Text scoreText;
 
 	public float jumpTime = 1;
 	public int scoreReward = 10;
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour {
 
 			if(!isJumping) {
 				score += scoreReward;
+				scoreText.text = "" + score;
 				islandManager.OnPlayerJumpFinished();
 			}
 		} else {
