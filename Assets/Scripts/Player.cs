@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	public int scoreReward = 10;
 	public float maxTimeLeft = 10;
 	public float minTimeLeft = 1;
+	public FlagType currentFlag = FlagType.AMERICA; 
 
 	private bool isJumping = false;
 	private int score = 0;
@@ -62,6 +63,16 @@ public class Player : MonoBehaviour {
 		}
 		
 		timeBar.localScale = new Vector3(timeLeft/currentMaxTimeLeft, 1, 1);
+		
+		if(Input.GetKeyDown(KeyCode.Alpha1)) {
+			currentFlag = FlagType.AMERICA;
+		} else if(Input.GetKeyDown(KeyCode.Alpha2)) {
+			currentFlag = FlagType.RUSSIA;
+		} else if(Input.GetKeyDown(KeyCode.Alpha3)) {
+			currentFlag = FlagType.CHINA;
+		} else if(Input.GetKeyDown(KeyCode.Alpha4)) {
+			currentFlag = FlagType.GERMANY;
+		}
 	}
 
 	public void moveToIsland(Island target) {
