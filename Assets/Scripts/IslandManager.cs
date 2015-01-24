@@ -58,7 +58,7 @@ public class IslandManager : MonoBehaviour {
 			int islandToGenerateIndex = (int)islandPrefabsCurve.Evaluate(player.Score/maxAPPoints);
 			
 			GameObject masterInstance = (GameObject)GameObject.Instantiate(masterIslandPrefab);
-			GameObject islandInstance = (GameObject)GameObject.Instantiate(islandPrefabs[i]);
+			GameObject islandInstance = (GameObject)GameObject.Instantiate(islandPrefabs[islandToGenerateIndex]);
 			
 			Island islandScript = masterInstance.GetComponent<Island>();
 			islandScript.islandManager = this;
