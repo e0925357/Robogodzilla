@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	public Image[] flagUI;
 	private Image currentUIFlag;
 	public Text scoreText;
+	public AudioSource deathSound;
 
 	public float jumpTime = 1;
 	public int scoreReward = 10;
@@ -108,6 +109,7 @@ public class Player : MonoBehaviour {
 	
 	public void killPlayer() {
 		isAlive = false;
+		deathSound.Play();
 	}
 
 	public void moveToIsland(Island target) {
