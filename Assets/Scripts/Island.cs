@@ -10,6 +10,8 @@ public class Island : MonoBehaviour {
 	public float spawnTime = 2;
 
 	public float spawnHeight = -1;
+	
+	public IslandManager islandManager;
 
 	private bool islandSpawned = false;
 	private float timer = 0;
@@ -61,5 +63,9 @@ public class Island : MonoBehaviour {
 
 	public void OnPlayerLanded(){
 
+	}
+	
+	void OnMouseDown() {
+		islandManager.islandClicked(this);
 	}
 }
