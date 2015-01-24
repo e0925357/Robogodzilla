@@ -17,6 +17,8 @@ public class CityBehavior : SpecialIslandBehavior {
 
 	public override void OnPlayerLanded ()
 	{
+//		animationObject.GetComponent<Animator>().animation.Play("Fall");
+//		GetComponentInChildren<Animation> ()
 		animationObject.animation.Play ("Fall");
 	}
 }
