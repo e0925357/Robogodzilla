@@ -87,4 +87,10 @@ public class Player : MonoBehaviour {
 			return this.score;
 		}
 	}
+
+	public bool IsAlive{
+		get {
+			return this.isAlive;
+		}
+	}
 }

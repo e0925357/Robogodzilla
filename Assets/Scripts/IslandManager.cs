@@ -31,7 +31,7 @@ public class IslandManager : MonoBehaviour {
 	}
 	
 	public void islandClicked(Island target) {
-		if(player.IsJumping || target == currentIsland) {
+		if(player.IsJumping || target == currentIsland || !player.IsAlive) {
 			return;
 		}
 		
