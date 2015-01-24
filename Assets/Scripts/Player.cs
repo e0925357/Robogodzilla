@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 	public AudioSource switchSound;
 
 	public float jumpTime = 1;
+	public AnimationCurve jumpHeight;
 	public int scoreReward = 10;
 	public float maxTimeLeft = 10;
 	public float minTimeLeft = 1;
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour {
 			}
 
 			Vector3 newPosition = oldPosition + (targetIsland.transform.position - oldPosition) * (jumpTimer  /jumpTime);
-			newPosition.y = yCoordinate;
+			newPosition.y = yCoordinate + jumpHeight.Evaluate(jumpTimer/jumpTime);
 			transform.position = newPosition;
 
 			if(!isJumping) {

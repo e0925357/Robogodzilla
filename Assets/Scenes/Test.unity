@@ -1449,6 +1449,26 @@ MonoBehaviour:
   deathSound: {fileID: 937353043}
   switchSound: {fileID: 522091024}
   jumpTime: .699999988
+  jumpHeight:
+    serializedVersion: 2
+    m_Curve:
+    - time: -.000787401572
+      value: .0037175715
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .501327753
+      value: 1.49675453
+      inSlope: -.00922639761
+      outSlope: -.00922639761
+      tangentMode: 0
+    - time: 1.0010376
+      value: .000657498837
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   scoreReward: 100
   maxTimeLeft: 10
   minTimeLeft: 1
