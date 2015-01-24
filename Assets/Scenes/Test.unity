@@ -1110,23 +1110,13 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  maxACPoints: 100
-  islandPrefabsCurve:
+  maxACPoints: 1000
+  nationCountCurve:
     serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 10
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 10
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
-  maxAPPoints: 500
+  maxNationCurvePoints: 1500
   currentIsland: {fileID: 1798974079}
   neighbours: []
   spawnRadius: 9
