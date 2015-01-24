@@ -1077,9 +1077,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1349389572}
   masterIslandPrefab: {fileID: 160532, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+  flagPrefab: {fileID: 128268, guid: b0f56499b3cc56f4fa33dc0adc967fca, type: 2}
   islandPrefabs:
   - {fileID: 199308, guid: b51c3e6be574de640bbb46f0f0ca30c7, type: 2}
   - {fileID: 173956, guid: c00711549f3111543a111db4fde9e0ba, type: 2}
+  flagTextures:
+  - {fileID: 2800000, guid: 93f3c59a4dd465f449bf1a023e45a46f, type: 3}
+  - {fileID: 2800000, guid: 2531267855cdb33419aba518f96edab1, type: 3}
+  - {fileID: 2800000, guid: cfa0cfbbe91ec284ca4e286b9c02e010, type: 3}
+  - {fileID: 2800000, guid: 7f12b9cc56c5ee44c98177938380003b, type: 3}
+  - {fileID: 2800000, guid: fa30b13f21648c345ac2c42ae594d14c, type: 3}
   maxIslandsCurve:
     serializedVersion: 2
     m_Curve:
@@ -1113,7 +1120,17 @@ MonoBehaviour:
   maxACPoints: 1000
   nationCountCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 4.95260954
+      outSlope: 4.95260954
+      tangentMode: 10
+    - time: 1.01309133
+      value: 5.01744556
+      inSlope: 4.95260954
+      outSlope: 4.95260954
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   maxNationCurvePoints: 1500
@@ -1974,6 +1991,7 @@ MonoBehaviour:
   spawnTime: 1.5
   spawnHeight: -2
   islandManager: {fileID: 0}
+  flagType: 0
 --- !u!1 &1821374421
 GameObject:
   m_ObjectHideFlags: 0
