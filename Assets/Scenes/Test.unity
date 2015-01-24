@@ -434,6 +434,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 460532, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -465,6 +469,46 @@ Prefab:
     - target: {fileID: 460532, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[1].time
+      value: .57299453
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[1].value
+      value: 1.36179805
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[1].inSlope
+      value: .216904745
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[1].outSlope
+      value: .216904745
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[2].time
+      value: .799404681
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[2].value
+      value: 1.31455398
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[2].inSlope
+      value: -.894069672
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[2].outSlope
+      value: -.894069672
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[3].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411868, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
+      propertyPath: spawnCurve.m_Curve.Array.data[3].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 147a21d5f155d2d4e81debd415ee556e, type: 2}
@@ -543,7 +587,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1798974077}
   - 114: {fileID: 1798974079}
-  - 114: {fileID: 1798974078}
   m_Layer: 0
   m_Name: IslandPrefab
   m_TagString: Untagged
@@ -564,17 +607,6 @@ Transform:
   - {fileID: 1267981833}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &1798974078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1798974076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa298f016d458b84b935da0e5b09d440, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1798974079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +627,16 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+    - time: .57299453
+      value: 1.36179805
+      inSlope: .216904745
+      outSlope: .216904745
+      tangentMode: 0
+    - time: .799404681
+      value: 1.31455398
+      inSlope: -.894069672
+      outSlope: -.894069672
+      tangentMode: 0
     - time: 1
       value: 1
       inSlope: 0
@@ -610,6 +652,11 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+    - time: .243233919
+      value: -.152996659
+      inSlope: -3.09618807
+      outSlope: -3.09618807
+      tangentMode: 0
     - time: 1
       value: 1
       inSlope: 0
@@ -617,5 +664,5 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  spawnTime: 1
-  spawnHeight: -1
+  spawnTime: 1.5
+  spawnHeight: -2
