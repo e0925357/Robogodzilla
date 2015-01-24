@@ -191,6 +191,7 @@ MonoBehaviour:
   followingSpeed: 10
   sqrDeadzone: .00999999978
   targetEntity: {fileID: 1349389571}
+  sea: {fileID: 806502505}
 --- !u!1 &474412205
 GameObject:
   m_ObjectHideFlags: 0
