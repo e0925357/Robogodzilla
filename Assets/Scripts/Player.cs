@@ -98,8 +98,6 @@ public class Player : MonoBehaviour {
 			Vector3 direction = point - transform.position;
 			direction.Normalize();
 
-			Quaternion rotation = transform.localRotation;
-
 			transform.rotation = Quaternion.identity;
 			float dotProduct = Vector3.Dot(Vector3.right, direction);
 			float angle = Mathf.Acos(dotProduct);
