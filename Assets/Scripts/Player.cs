@@ -29,6 +29,10 @@ public class Player : MonoBehaviour {
 	public float maxDeathAnimationTime = 10;
 	public float deathAnimationTime;
 	public string deathMessage = "-";
+	public Canvas hudCanvas;
+	public Canvas gameOverCanvas;
+	public Text deathTextLabel;
+	public Text deathScoreLabel;
 
 
 	private bool isJumping = false;
@@ -66,6 +70,13 @@ public class Player : MonoBehaviour {
 				deathAnimationTime -= Time.deltaTime;
 				
 				deathMaterial.color = new Color(1, 1, 1, Mathf.Max(deathAnimationTime/maxDeathAnimationTime, 0));
+				
+				if(IsReallyDead) {
+					hudCanvas.enabled = false;
+					deathTextLabel.text = deathMessage;
+					deathScoreLabel.text = "Score: " + score;
+					gameOverCanvas.enabled = true;
+				}
 			}
 			
 			return;
@@ -139,7 +150,7 @@ public class Player : MonoBehaviour {
 			break;
 		}
 		
-		currentUIFlag.color = new Color(1f, 0.8f, 0.8f, 1f);
+		currentUIFlag.color = new Color(1f, 0.2f, 0.2f, 1f);
 		currentFlag = newType;
 	}
 	
