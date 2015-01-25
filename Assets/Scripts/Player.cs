@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	public Text scoreText;
 	public AudioSource deathSound;
 	public AudioSource switchSound;
+	public GameObject playerBackDisplay;
 
 	public float jumpTime = 1;
 	public AnimationCurve jumpHeight;
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour {
 		
 		currentUIFlag = flagUI[0];
 		currentUIFlag.color = new Color(1f, 0.8f, 0.8f, 1f);
+		playerBackDisplay.renderer.material.mainTexture = islandManager.flagTextures[0];
 	}
 	
 	void resetTimer() {
@@ -108,15 +110,18 @@ public class Player : MonoBehaviour {
 		switch(newType) {
 		case FlagType.AMERICA:
 			currentUIFlag = flagUI[0];
+			playerBackDisplay.renderer.material.mainTexture = islandManager.flagTextures[0];
 			break;
 		case FlagType.RUSSIA:
 			currentUIFlag = flagUI[1];
+			playerBackDisplay.renderer.material.mainTexture = islandManager.flagTextures[1];
 			break;
 		case FlagType.CHINA:
 			currentUIFlag = flagUI[2];
+			playerBackDisplay.renderer.material.mainTexture = islandManager.flagTextures[2];
 			break;
 		case FlagType.GERMANY:
-			currentUIFlag = flagUI[3];
+			currentUIFlag = flagUI[3];playerBackDisplay.renderer.material.mainTexture = islandManager.flagTextures[3];
 			break;
 		}
 		

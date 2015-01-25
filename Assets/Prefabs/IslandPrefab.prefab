@@ -65,7 +65,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160534}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -145,6 +145,7 @@ MonoBehaviour:
   spawnTime: 1.5
   spawnHeight: -2
   islandManager: {fileID: 0}
+  flagType: 0
 --- !u!135 &13574552
 SphereCollider:
   m_ObjectHideFlags: 1
