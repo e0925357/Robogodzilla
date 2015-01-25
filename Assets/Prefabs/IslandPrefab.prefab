@@ -145,6 +145,7 @@ MonoBehaviour:
   spawnTime: 1.5
   spawnHeight: -2
   islandManager: {fileID: 0}
+  playSpawnAnimation: 1
   flagType: 0
 --- !u!135 &13574552
 SphereCollider:
