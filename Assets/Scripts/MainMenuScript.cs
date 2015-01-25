@@ -25,4 +25,16 @@ public class MainMenuScript : MonoBehaviour {
 	public void play() {
 		Application.LoadLevel(1);
 	}
+	
+	public void help() {
+		bool newValue = !helpPanel.enabled;
+		
+		helpPanel.enabled = newValue;
+		
+		Text[] texts = creditsPanel.GetComponentsInChildren<Text>();
+		
+		foreach(Text text in texts) {
+			text.enabled = newValue;
+		}
+	}
 }
