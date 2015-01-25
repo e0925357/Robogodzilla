@@ -66,7 +66,7 @@ public class Sheep : MonoBehaviour {
 		rotation.y = 180 + 360 * Random.value;
 		rotation.z = 180 + 360 * Random.value;
 
-		launchDelay = Random.value * 0.1f;
+		launchDelay = Random.value * 0.02f;
 
 		launched = true;
 	}
