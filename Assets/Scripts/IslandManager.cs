@@ -67,6 +67,15 @@ public class IslandManager : MonoBehaviour {
 			GameObject masterInstance = (GameObject)GameObject.Instantiate(masterIslandPrefab);
 			GameObject islandInstance = (GameObject)GameObject.Instantiate(islandPrefabs[islandToGenerateIndex]);
 			
+			Island islandScript = masterInstance.GetComponent<Island>();
+			islandScript.islandManager = this;
+			islandScript.flagType = type;
+			
+			islandInstance.transform.parent = masterInstance.transform;
+			islandInstance.transform.localPosition = Vector3.zero;
+			
+			masterInstance.transform.Rotate(new Vector3(0, 80*Random.value - 40, 0));
+			
 			if(type != FlagType.NONE){
 				GameObject flagInstance = (GameObject)GameObject.Instantiate(flagPrefab);
 				Vector3 relativePos = flagInstance.transform.position;
@@ -75,13 +84,6 @@ public class IslandManager : MonoBehaviour {
 				
 				flagInstance.transform.GetChild(0).renderer.material.mainTexture = flagTextures[nationIndex-1];
 			}
-			
-			Island islandScript = masterInstance.GetComponent<Island>();
-			islandScript.islandManager = this;
-			islandScript.flagType = type;
-			
-			islandInstance.transform.parent = masterInstance.transform;
-			islandInstance.transform.localPosition = Vector3.zero;
 			
 			Vector3 masterPosition = masterInstance.transform.position;
 			
