@@ -13,6 +13,8 @@ public class Island : MonoBehaviour {
 	
 	public IslandManager islandManager;
 
+	public bool playSpawnAnimation = true;
+
 	private bool islandSpawned = false;
 	private float timer = 0;
 	
@@ -23,7 +25,12 @@ public class Island : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Vector3 pos = transform.position;
-		pos.y = spawnHeight;
+
+		if (!playSpawnAnimation) {
+			islandSpawned = true;
+		} else {
+			pos.y = spawnHeight;
+		}
 
 		transform.position = pos;
 	}
