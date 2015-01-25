@@ -1,23 +1,13 @@
 fileFormatVersion: 2
-guid: 237f4a3678861a0449b172ff509ab0b8
+guid: dd102b1293db5a547bc8d548ec62d4a4
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cylinder_001
-    100004: Icosphere
     400000: //RootNode
-    400002: Cylinder_001
-    400004: Icosphere
     2300000: //RootNode
-    2300002: Cylinder_001
-    2300004: Icosphere
     3300000: //RootNode
-    3300002: Cylinder_001
-    3300004: Icosphere
-    4300000: Sphere_002
-    4300002: Cylinder_001
-    4300004: Icosphere
+    4300000: Icosphere
     7400000: Default Take
     9500000: //RootNode
   materials:
