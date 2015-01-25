@@ -24,6 +24,11 @@ public class Player : MonoBehaviour {
 	public float minRoarTime = 10;
 	public AudioSource roarSound;
 	private float roarTimer = 0;
+	
+	public Material deathMaterial;
+	public float maxDeathAnimationTime = 10;
+	public float deathAnimationTime;
+	public string deathMessage = "-";
 
 
 	private bool isJumping = false;
@@ -46,6 +51,7 @@ public class Player : MonoBehaviour {
 		
 		currentUIFlag = flagUI[0];
 		currentUIFlag.color = new Color(1f, 0.8f, 0.8f, 1f);
+		deathAnimationTime = maxDeathAnimationTime;
 		playerBackDisplay.renderer.material.mainTexture = islandManager.flagTextures[0];
 	}
 	
@@ -55,7 +61,15 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!isAlive) return;
+		if(!isAlive) {
+			if(!IsReallyDead) {
+				deathAnimationTime -= Time.deltaTime;
+				
+				deathMaterial.color = new Color(1, 1, 1, Mathf.Max(deathAnimationTime/maxDeathAnimationTime, 0));
+			}
+			
+			return;
+		}
 		
 		if (isJumping) {
 			jumpTimer += Time.deltaTime;
@@ -85,7 +99,7 @@ public class Player : MonoBehaviour {
 		}
 		
 		if(timeLeft <= 0) {
-			killPlayer();
+			killPlayer("TimeOutException: Jump took too long!");
 		}
 		
 		timeBar.localScale = new Vector3(timeLeft/currentMaxTimeLeft, 1, 1);
@@ -129,9 +143,21 @@ public class Player : MonoBehaviour {
 		currentFlag = newType;
 	}
 	
-	public void killPlayer() {
+	public void killPlayer(string deathMessage) {
 		isAlive = false;
 		deathSound.Play();
+		
+		Renderer[] renderes = GetComponentsInChildren<Renderer>();
+		
+		foreach(Renderer renderer in renderes) {
+			renderer.material = deathMaterial;
+		}
+		
+		if(this.renderer != null) {
+			this.renderer.material = deathMaterial;
+		}
+		
+		this.deathMessage = deathMessage;
 	}
 
 	public void moveToIsland(Island target) {
@@ -164,6 +190,12 @@ public class Player : MonoBehaviour {
 	public bool IsAlive{
 		get {
 			return this.isAlive;
+		}
+	}
+	
+	public bool IsReallyDead{
+		get {
+			return !isAlive && deathAnimationTime <= 0;
 		}
 	}
 }

@@ -1508,6 +1508,10 @@ MonoBehaviour:
   maxRoarTime: 30
   minRoarTime: 10
   roarSound: {fileID: 648716250}
+  deathMaterial: {fileID: 2100000, guid: 547a59c3d016fd44dabccf276c3ab15f, type: 2}
+  maxDeathAnimationTime: 1.5
+  deathAnimationTime: 0
+  deathMessage: '-'
 --- !u!82 &1349389573
 AudioSource:
   m_ObjectHideFlags: 0

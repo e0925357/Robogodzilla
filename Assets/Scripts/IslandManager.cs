@@ -103,7 +103,7 @@ public class IslandManager : MonoBehaviour {
 		FlagType islandFlagType = currentIsland.GetComponent<Island>().flagType;
 		
 		if(islandFlagType != FlagType.NONE && islandFlagType != player.currentFlag) {
-			player.killPlayer();
+			player.killPlayer("IllegalStateException: Nation flag set incorrectly!");
 		} else {
 			int score = currentIsland.GetComponentInChildren<IslandTheme>().scoreValue;
 			player.Score += score;
