@@ -31,7 +31,7 @@ public class MainMenuScript : MonoBehaviour {
 		
 		helpPanel.enabled = newValue;
 		
-		Text[] texts = creditsPanel.GetComponentsInChildren<Text>();
+		Text[] texts = helpPanel.GetComponentsInChildren<Text>();
 		
 		foreach(Text text in texts) {
 			text.enabled = newValue;
